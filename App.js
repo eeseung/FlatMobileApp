@@ -27,6 +27,7 @@ import {
 } from 'react-native/Libraries/NewAppScreen';
 
 import { Album } from "./src/components/Album";
+import { Profile } from "./src/components/Profile";
 
 const Section = ({children, title}): Node => {
   const isDarkMode = useColorScheme() === 'dark';
@@ -64,6 +65,9 @@ const App: () => Node = () => {
   return (
     <ScrollView>
       <View >
+        <Profile size={'SMALL'} imgURL={''}/>
+        <Profile size={'MEDIUM'} imgURL={''}/>
+        <Profile size={'LARGE'} imgURL={''}/>
         <Album state={'PLAY_SMALL'}/>
         <Album title={'제목'} state={'LIKE_LARGE'} description={'블라블라'} time={'3:02'} artist={'소지'} liked={true}/>
         <Album state={'LIKE_SMALL'} liked={true}/>
