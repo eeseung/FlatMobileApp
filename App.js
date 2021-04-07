@@ -26,6 +26,9 @@ import {
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
 
+import { Album } from "./src/components/Album";
+import { Profile } from "./src/components/Profile";
+
 const Section = ({children, title}): Node => {
   const isDarkMode = useColorScheme() === 'dark';
   return (
@@ -59,33 +62,18 @@ const App: () => Node = () => {
     backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
   };
   return (
-    <SafeAreaView style={backgroundStyle}>
-      <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
-      <ScrollView
-        contentInsetAdjustmentBehavior="automatic"
-        style={backgroundStyle}>
-        <Header />
-        <View
-          style={{
-            backgroundColor: isDarkMode ? Colors.black : Colors.white,
-          }}>
-          <Section title="Step One">
-            Edit <Text style={styles.highlight}>App.js</Text> to change this
-            screen and then come back to see your edits.
-          </Section>
-          <Section title="See Your Changes">
-            <ReloadInstructions />
-          </Section>
-          <Section title="Debug">
-            <DebugInstructions />
-          </Section>
-          <Section title="Learn More">
-            Read the docs to discover what to do next:
-          </Section>
-          <LearnMoreLinks />
-        </View>
-      </ScrollView>
-    </SafeAreaView>
+    <ScrollView>
+      <View >
+        <Profile size={'SMALL'} imgURL={''}/>
+        <Profile size={'MEDIUM'} imgURL={''}/>
+        <Profile size={'LARGE'} imgURL={''}/>
+        <Album state={'PLAY_SMALL'}/>
+        <Album title={'제목'} state={'LIKE_LARGE'} description={'블라블라'} time={'3:02'} artist={'소지'} liked={true}/>
+        <Album state={'LIKE_SMALL'} liked={true}/>
+        <Album state={'PLAY_LARGE'}/>
+      </View>
+    </ScrollView>
+
   );
 };
 
