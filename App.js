@@ -28,6 +28,8 @@ import {
 
 import { Album } from "./src/components/Album";
 import { Profile } from "./src/components/Profile";
+import { Note } from "./src/components/Note";
+import { MusicSheet } from "./src/components/MusicSheet";
 
 const Section = ({children, title}): Node => {
   const isDarkMode = useColorScheme() === 'dark';
@@ -62,17 +64,25 @@ const App: () => Node = () => {
     backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
   };
   return (
-    <ScrollView>
-      <View >
-        <Profile size={'SMALL'} imgURL={''}/>
-        <Profile size={'MEDIUM'} imgURL={''}/>
-        <Profile size={'LARGE'} imgURL={''}/>
-        <Album state={'PLAY_SMALL'}/>
-        <Album title={'제목'} state={'LIKE_LARGE'} description={'블라블라'} time={'3:02'} artist={'소지'} liked={true}/>
-        <Album state={'LIKE_SMALL'} liked={true}/>
-        <Album state={'PLAY_LARGE'}/>
-      </View>
-    </ScrollView>
+    <View>
+      <ScrollView horizontal={true}>
+        {/*<MusicSheet positions={}/>*/}
+      </ScrollView>
+      <ScrollView>
+
+        <View >
+
+          <Profile size={'SMALL'} imgURL={''}/>
+          <Profile size={'MEDIUM'} imgURL={''}/>
+          <Profile size={'LARGE'} imgURL={''}/>
+          <Album state={'PLAY_SMALL'}/>
+          <Album title={'제목'} state={'LIKE_LARGE'} description={'블라블라'} time={'3:02'} artist={'소지'} liked={true}/>
+          <Album state={'LIKE_SMALL'} liked={true}/>
+          <Album state={'PLAY_LARGE'}/>
+        </View>
+      </ScrollView>
+    </View>
+
 
   );
 };
