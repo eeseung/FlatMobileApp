@@ -19,5 +19,6 @@ const styles = StyleSheet.create({
         height: Dimensions.get("window").height,
         alignItems: 'center',
         justifyContent: 'center',
+        backgroundColor: '#101010',
     },
 });

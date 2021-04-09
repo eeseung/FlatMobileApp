@@ -17,7 +17,7 @@ const IdTextInput = () => {
         <View style={styles.elem}>
             {/*id*/}
             <Image
-                source = {require('./src/image/user.png')}
+                source = {require('../../image/user.png')}
             />
             <TextInput
                 style={[styles.idInput, this.state.isIdFocus ? styles.idFocusState : false, {fontSize: PixelRatio.getPixelSizeForLayoutSize(6)}]} // 삼항연산자
