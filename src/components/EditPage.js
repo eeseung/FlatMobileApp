@@ -1,6 +1,7 @@
-import React, {useState} from 'react';
-import { MusicSheet } from "./MusicSheet";
+import React, { useState } from 'react';
 import { View, ScrollView } from "react-native";
+import { MusicSheet } from "./MusicSheet";
+import { SoundButtons } from "./SoundButtons";
 
 const getTop = (note) => {
     switch (note) {
@@ -42,6 +43,7 @@ export const EditPage = () => {
             <ScrollView horizontal={true}>
                 {<MusicSheet positions={result}/>}
             </ScrollView>
+            <SoundButtons/>
         </View>
     )
 }

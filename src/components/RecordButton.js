@@ -1,37 +1,41 @@
-import React, {useState} from 'react';
-import { StyleSheet, Text, Pressable } from 'react-native';
-import LinearGradient from 'react-native-linear-gradient';
+import React, { useState } from 'react';
+import { StyleSheet, Pressable, Image } from 'react-native';
 
-export const RecordButton = ({ name }) => {
+export const RecordButton = ({ toggleButton } ) => {
+    const [state, setState] = useState({
+        recording: true, uri: require('../../assets/icons/recording.png')
+    });
+
+    toggleButton = () => {
+        if (state.recording) {
+            setState({
+                recording: false,
+                uri: require('../../assets/icons/stop.png')
+        })}
+        else { setState(
+            { recording: true,
+                    uri: require('../../assets/icons/recording.png')
+        })}
+    };
+
     return (
-        <Pressable>
-                {({ pressed }) => (
-                    <LinearGradient
-                        start={{x: 0, y: 0}} end={{x: 1, y: 0}}
-                                    colors={['#54DE51','#51CDDE']}
-                                    style={ styles.recordButton }>
-                    <Text style= {[
-                        { color : pressed ? 'black' : 'white' },
-                        styles.text,
-                    ]}>
-                        { name }
-                    </Text>
-                    </LinearGradient>
-                )}
+        <Pressable
+            onPressOut = {() => toggleButton()}
+            style={({ pressed }) => [
+                { backgroundColor: pressed ? '#2E2E2E' : '#101010' }, styles.colorButton ]}>
+            <Image source={ state.uri } />
         </Pressable>
     );
 };
 
 const styles = StyleSheet.create({
-    recordButton: {
-        width: 221,
-        height: 60,
-        borderRadius: 6,
-        borderWidth: 1,
+    colorButton: {
+        width: 222,
+        height: 222,
+        borderRadius: 111,
+        borderWidth: 15,
+        borderColor: '#51CDDE',
         alignItems: 'center',
         justifyContent: 'center',
-    },
-    text: {
-        fontSize: 14,
     },
 });

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { StyleSheet, Text, Pressable } from 'react-native';
+import { StyleSheet, Text, Pressable, Dimensions } from 'react-native';
 
 export const ItemButton = ({name, toggleButton}) => {
     const [state, setState] = useState({
@@ -24,8 +24,8 @@ export const ItemButton = ({name, toggleButton}) => {
 
 const styles = StyleSheet.create({
     colorButton: {
-        width: 120,
-        height: 111,
+        width: Dimensions.get("window").width/3-1,
+        height: Dimensions.get("window").height*0.19-1,
         alignItems: 'center',
         justifyContent: 'center',
     },
