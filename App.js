@@ -1,13 +1,14 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- * @flow strict-local
- */
 
 import React from 'react';
 import type {Node} from 'react';
+import 'react-native-gesture-handler';
+import {NavigationContainer} from '@react-navigation/native';
+import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+import TobBarExample from "./src/components/tabbar/TobBarExample";
+import Tab2 from "./src/components/tabbar/Tab2";
+import Tab3 from "./src/components/tabbar/Tab3";
+
 import {
   SafeAreaView,
   ScrollView,
@@ -25,35 +26,8 @@ import {
   LearnMoreLinks,
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
-
-import { Album } from "./src/components/Album";
-import { Profile } from "./src/components/Profile";
-
-const Section = ({children, title}): Node => {
-  const isDarkMode = useColorScheme() === 'dark';
-  return (
-    <View style={styles.sectionContainer}>
-      <Text
-        style={[
-          styles.sectionTitle,
-          {
-            color: isDarkMode ? Colors.white : Colors.black,
-          },
-        ]}>
-        {title}
-      </Text>
-      <Text
-        style={[
-          styles.sectionDescription,
-          {
-            color: isDarkMode ? Colors.light : Colors.dark,
-          },
-        ]}>
-        {children}
-      </Text>
-    </View>
-  );
-};
+// import { Album } from "./src/components/Album";
+// import { Profile } from "./src/components/Profile";
 
 const App: () => Node = () => {
   const isDarkMode = useColorScheme() === 'dark';
@@ -63,21 +37,90 @@ const App: () => Node = () => {
   };
 
   return (
-    <ScrollView>
-      <View >
-        <Profile size={'SMALL'} imgURL={''}/>
-        <Profile size={'MEDIUM'} imgURL={''}/>
-        <Profile size={'LARGE'} imgURL={''}/>
-        <Album state={'PLAY_SMALL'}/>
-        <Album title={'제목'} state={'LIKE_LARGE'} description={'블라블라'} time={'3:02'} artist={'소지'} liked={true}/>
-        <Album state={'LIKE_SMALL'} liked={true}/>
-        <Album state={'PLAY_LARGE'}/>
-      </View>
-    </ScrollView>
-
+      <NavigationContainer>
+        <TabNavigator />
+      </NavigationContainer>
+    // <ScrollView>
+    //   <View >
+    //     <Profile size={'SMALL'} imgURL={''}/>
+    //     <Profile size={'MEDIUM'} imgURL={''}/>
+    //     <Profile size={'LARGE'} imgURL={''}/>
+    //     <Album state={'PLAY_SMALL'}/>
+    //     <Album title={'제목'} state={'LIKE_LARGE'} description={'블라블라'} time={'3:02'} artist={'소지'} liked={true}/>
+    //     <Album state={'LIKE_SMALL'} liked={true}/>
+    //     <Album state={'PLAY_LARGE'}/>
+    //   </View>
+    // </ScrollView>
   );
 };
-
+const Tab = createBottomTabNavigator();
+const TabNavigator = () => {
+  return (
+      <Tab.Navigator
+          tabBarOptions={{
+            activeTintColor: '#FFFFFF',
+            activeBackgroundColor: '#101010',
+            inactiveBackgroundColor: '#101010',
+          }}
+          // tabBar={props => <MyTabBar {...props} />}
+      >
+        <Tab.Screen
+            name="home"
+            component={TobBarExample}
+            options={{
+              tabBarLabel: 'Home',
+              tabBarIcon: ({color, size}) => (
+                  <MaterialCommunityIcons name="home" color={color} size={size} />
+              ),
+            }}
+        />
+        <Tab.Screen
+            name="free"
+            component={Tab2}
+            options={{
+              tabBarLabel: 'FreeBGM',
+              tabBarIcon: ({color, size}) => (
+                  <MaterialCommunityIcons name="music" color={color} size={size} />
+              ),
+            }}
+        />
+        <Tab.Screen
+            name="music"
+            component={Tab3}
+            options={{
+              tabBarLabel: 'Music',
+              tabBarIcon: ({color, size}) => (
+                  <MaterialCommunityIcons
+                      name="plus-circle"
+                      color={color}
+                      size={size}
+                  />
+              ),
+            }}
+        />
+        <Tab.Screen
+            name="community"
+            component={TobBarExample}
+            options={{
+              tabBarLabel: '커뮤니티',
+              tabBarIcon: ({color, size}) => (
+                  <MaterialCommunityIcons name="message" color={color} size={size} />
+              ),
+            }}
+        />
+        <Tab.Screen
+            name="page"
+            component={TobBarExample}
+            options={{
+              tabBarLabel: 'MyPage',
+              tabBarIcon: ({color, size}) => (
+                  <MaterialCommunityIcons name="account" color={color} size={size} />
+              ),
+            }}
+        />
+      </Tab.Navigator>
+  );
+}
 const styles = StyleSheet.create({
   sectionContainer: {
     marginTop: 32,
