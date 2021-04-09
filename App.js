@@ -8,6 +8,7 @@
 
 import React, {useState} from 'react';
 import type {Node} from 'react';
+
 import {
   SafeAreaView,
   ScrollView,
@@ -70,6 +71,7 @@ const App: () => Node = () => {
   };
 
   return (
+
     <ScrollView>
       <View>
         <ScrollView>
