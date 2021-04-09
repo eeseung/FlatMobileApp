@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
-import type {Node} from 'react';
 import { Pressable, Image } from 'react-native';
 
-const LikeButton: () => Node = ( { toggleButton } ) => {
+const PlayButton = ( { toggleButton } ) => {
     const [state, setState] = useState({
         playing: true, uri: require('../../assets/icons/play.png')
     });
@@ -26,4 +25,4 @@ const LikeButton: () => Node = ( { toggleButton } ) => {
     );
 };
 
-export default LikeButton;
+export default PlayButton;

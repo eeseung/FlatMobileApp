@@ -1,15 +1,14 @@
 import React from 'react';
-import type {Node} from 'react';
 import { StyleSheet, Text, Pressable } from 'react-native';
 
-const ColorButton: () => Node = ({text}) => {
+const ColorButton = ({ name }) => {
     return (
         <Pressable
             style={({pressed}) => [
                 { backgroundColor: pressed ? '#51CDDE' : '#101010' }, styles.colorButton ]}>
             {({ pressed }) => (
                 <Text style= {[ {color : pressed ? 'black' : 'white'}, styles.text ]}>
-                    {text}
+                    { name }
                 </Text>
             )}
         </Pressable>

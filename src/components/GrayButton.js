@@ -1,21 +1,20 @@
 import React from 'react';
-import type {Node} from 'react';
 import { StyleSheet, Text, Pressable } from 'react-native';
 
-const GrayButton: () => Node = ({text}) => {
+const GrayButton = ({ name }) => {
     return (
         <Pressable
             style={({pressed}) => [
-                { backgroundColor: pressed ? '#2E2E2E' : '#101010' }, styles.colorButton]}>
+                { backgroundColor: pressed ? '#2E2E2E' : '#101010' }, styles.grayButton]}>
             <Text style={styles.text}>
-                {text}
+                { name }
             </Text>
         </Pressable>
     );
 };
 
 const styles = StyleSheet.create({
-    colorButton: {
+    grayButton: {
         width: 160,
         height: 35,
         borderRadius: 5,

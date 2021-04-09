@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
-import type {Node} from 'react';
 import { StyleSheet, Text, Pressable } from 'react-native';
 
-const ItemButton: () => Node = ({text, toggleButton}) => {
+const ItemButton = ({name, toggleButton}) => {
     const [state, setState] = useState({
         selected: false, background: '#101010', color: 'white'
     });
@@ -17,7 +16,7 @@ const ItemButton: () => Node = ({text, toggleButton}) => {
         <Pressable onPressOut = {() => toggleButton()}
             style={[{ backgroundColor: state.background }, styles.colorButton ]}>
             <Text style= {[{ color: state.color }, styles.text]}>
-                {text}
+                { name }
             </Text>
         </Pressable>
     );
