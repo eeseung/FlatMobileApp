@@ -15,16 +15,16 @@ const NoteContainer = styled.View<StyleProps>`
   position: absolute;
   left: ${props => props.x}px;
   bottom: ${props => props.y}px;
-  width: 5px;
-  height: 5px;
+  width: 20px;
+  height: 10px;
   border-radius: 5px;
-  background-color: white;
+  background-color: #51CDDE;
 `;
 
 export const Note = ({x, y}: NoteProps) => {
+  console.log("x: ", x, "y: ", y)
   return(
     <NoteContainer x={x} y={y}/>
-
   )
 }
 

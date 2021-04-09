@@ -1,9 +1,8 @@
 import React, {useState} from 'react';
-import type {Node} from 'react';
 import { StyleSheet, Text, Pressable } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 
-const RecordButton: () => Node = ({text}) => {
+export const RecordButton = ({ name }) => {
     return (
         <Pressable>
                 {({ pressed }) => (
@@ -15,7 +14,7 @@ const RecordButton: () => Node = ({text}) => {
                         { color : pressed ? 'black' : 'white' },
                         styles.text,
                     ]}>
-                        {text}
+                        { name }
                     </Text>
                     </LinearGradient>
                 )}
@@ -36,5 +35,3 @@ const styles = StyleSheet.create({
         fontSize: 14,
     },
 });
-
-export default RecordButton;

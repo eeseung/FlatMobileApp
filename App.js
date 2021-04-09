@@ -6,7 +6,7 @@
  * @flow strict-local
  */
 
-import React from 'react';
+import React, {useState} from 'react';
 import type {Node} from 'react';
 import {
   SafeAreaView,
@@ -28,8 +28,13 @@ import {
 
 import { Album } from "./src/components/Album";
 import { Profile } from "./src/components/Profile";
-import { Note } from "./src/components/Note";
-import { MusicSheet } from "./src/components/MusicSheet";
+import { PlayButton } from "./src/components/PlayButton";
+import { ColorButton } from "./src/components/ColorButton";
+import { GrayButton } from "./src/components/GrayButton";
+import { RecordButton } from "./src/components/RecordButton";
+import { RecordingButton } from "./src/components/RecordingButton";
+import { LikeButton } from "./src/components/LikeButton";
+import { EditPage } from "./src/components/EditPage";
 
 const Section = ({children, title}): Node => {
   const isDarkMode = useColorScheme() === 'dark';
@@ -63,27 +68,30 @@ const App: () => Node = () => {
   const backgroundStyle = {
     backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
   };
+
   return (
-    <View>
-      <ScrollView horizontal={true}>
-        {/*<MusicSheet positions={}/>*/}
-      </ScrollView>
-      <ScrollView>
-
-        <View >
-
-          <Profile size={'SMALL'} imgURL={''}/>
-          <Profile size={'MEDIUM'} imgURL={''}/>
-          <Profile size={'LARGE'} imgURL={''}/>
-          <Album state={'PLAY_SMALL'}/>
-          <Album title={'제목'} state={'LIKE_LARGE'} description={'블라블라'} time={'3:02'} artist={'소지'} liked={true}/>
-          <Album state={'LIKE_SMALL'} liked={true}/>
-          <Album state={'PLAY_LARGE'}/>
-        </View>
-      </ScrollView>
-    </View>
-
-
+    <ScrollView>
+      <View>
+        <ScrollView>
+          <EditPage/>
+          <View >
+            <Profile size={'SMALL'} imgURL={''}/>
+            <Profile size={'MEDIUM'} imgURL={''}/>
+            <Profile size={'LARGE'} imgURL={''}/>
+            <Album state={'PLAY_SMALL'}/>
+            <Album title={'제목'} state={'LIKE_LARGE'} description={'블라블라'} time={'3:02'} artist={'소지'} liked={true}/>
+            <Album state={'LIKE_SMALL'} liked={true}/>
+            <Album state={'PLAY_LARGE'}/>
+            <ColorButton name={'로그인'}/>
+            <GrayButton name={'회원가입'}/>
+            <RecordButton name={'녹음하기'}/>
+            <RecordingButton/>
+            <LikeButton/>
+            <PlayButton/>
+          </View>
+        </ScrollView>
+      </View>
+    </ScrollView>
   );
 };
 
