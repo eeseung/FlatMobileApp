@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Pressable, Image } from 'react-native';
 
-const LikeButton = ( { toggleButton } ) => {
+export const LikeButton = ( { toggleButton } ) => {
     const [state, setState] = useState({
         like: false, uri: require('../../assets/icons/like.png')
     });
@@ -24,5 +24,3 @@ const LikeButton = ( { toggleButton } ) => {
         </Pressable>
     );
 };
-
-export default LikeButton;

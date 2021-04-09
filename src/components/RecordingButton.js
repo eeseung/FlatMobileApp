@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { StyleSheet, Pressable, Image } from 'react-native';
 
-const RecordingButton = ( { toggleButton } ) => {
+export const RecordingButton = ( { toggleButton } ) => {
     const [state, setState] = useState({
         recording: true, uri: require('../../assets/icons/recording.png')
     });
@@ -39,5 +39,3 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
     },
 });
-
-export default RecordingButton;

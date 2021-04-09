@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { StyleSheet, Text, Pressable } from 'react-native';
 
-const ItemButton = ({name, toggleButton}) => {
+export const ItemButton = ({name, toggleButton}) => {
     const [state, setState] = useState({
         selected: false, background: '#101010', color: 'white'
     });
@@ -33,5 +33,3 @@ const styles = StyleSheet.create({
         fontSize: 20,
     },
 });
-
-export default ItemButton;

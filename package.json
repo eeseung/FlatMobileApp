@@ -14,6 +14,7 @@
     "@types/requirejs": "^2.1.32",
     "@types/styled-components": "^5.1.9",
     "@types/styled-components-react-native": "^5.1.1",
+    "midi-sounds-react": "^1.2.54",
     "react": "17.0.1",
     "react-native": "0.64.0",
     "react-native-linear-gradient": "^2.5.6",

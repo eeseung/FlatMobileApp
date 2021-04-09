@@ -128,7 +128,7 @@ export const Album = ({state, liked, coverURL, title, time, artist, description}
             }
             {liked ?
               <LikedContainer>
-                <Image source={require('./assets/images/Album_Heart.png')} style={{width: 22, height: 22}}/>
+                <Image source={require('./assets/images/Heart.png')} style={{width: 22, height: 22}}/>
               </LikedContainer>
             : null}
           </AlbumCover>

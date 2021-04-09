@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import { StyleSheet, Text, Pressable } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 
-const RecordButton = ({ name }) => {
+export const RecordButton = ({ name }) => {
     return (
         <Pressable>
                 {({ pressed }) => (
@@ -35,5 +35,3 @@ const styles = StyleSheet.create({
         fontSize: 14,
     },
 });
-
-export default RecordButton;

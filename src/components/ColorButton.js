@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet, Text, Pressable } from 'react-native';
 
-const ColorButton = ({ name }) => {
+export const ColorButton = ({ name }) => {
     return (
         <Pressable
             style={({pressed}) => [
@@ -29,5 +29,3 @@ const styles = StyleSheet.create({
         fontSize: 14,
     },
 });
-
-export default ColorButton;

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Pressable, Image } from 'react-native';
 
-const PlayButton = ( { toggleButton } ) => {
+export const PlayButton = ( { toggleButton } ) => {
     const [state, setState] = useState({
         playing: true, uri: require('../../assets/icons/play.png')
     });
@@ -24,5 +24,3 @@ const PlayButton = ( { toggleButton } ) => {
         </Pressable>
     );
 };
-
-export default PlayButton;

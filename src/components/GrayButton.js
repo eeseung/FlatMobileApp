@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet, Text, Pressable } from 'react-native';
 
-const GrayButton = ({ name }) => {
+export const GrayButton = ({ name }) => {
     return (
         <Pressable
             style={({pressed}) => [
@@ -28,5 +28,3 @@ const styles = StyleSheet.create({
         color: 'white',
     },
 });
-
-export default GrayButton;
